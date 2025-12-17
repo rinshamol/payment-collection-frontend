@@ -1,6 +1,22 @@
 import React, { useState } from "react";
-import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Platform,
+} from "react-native";
 import { makePayment } from "../../config/api";
+
+const showAlert = (title: string, message: string) => {
+  if (Platform.OS === "web") {
+    window.alert(`${title}: ${message}`);
+  } else {
+    Alert.alert(title, message);
+  }
+};
 
 export default function PaymentScreen() {
   const [accountNumber, setAccountNumber] = useState("");
@@ -8,16 +24,16 @@ export default function PaymentScreen() {
 
   const handlePayment = async () => {
     if (!accountNumber || !amount) {
-      Alert.alert("Error", "Please fill all fields");
+      showAlert("Error", "Please fill all fields");
       return;
     }
     try {
       const data = await makePayment(accountNumber, Number(amount));
-      Alert.alert("Success", data.message);
+      showAlert("Success", data.message);
       setAccountNumber("");
       setAmount("");
     } catch (err: any) {
-      Alert.alert("Error", err.response?.data?.message || "Payment failed");
+      showAlert("Error", err.response?.data?.message || "Payment failed");
     }
   };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet, Button } from "react-native";
+import { useRouter } from "expo-router";
 import { getCustomers } from "../../config/api";
 
 interface Customer {
@@ -10,7 +11,8 @@ interface Customer {
   emi_due: number;
 }
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreen() {
+  const router = useRouter();
   const [customers, setCustomers] = useState<Customer[]>([]);
 
   useEffect(() => {
@@ -18,11 +20,13 @@ export default function HomeScreen({ navigation }: any) {
   }, []);
 
   const fetchCustomers = async () => {
+    console.log("Fetching customers...");
     try {
       const data = await getCustomers();
+      console.log("Fetched customers:", data);
       setCustomers(data);
     } catch (err) {
-      console.log(err);
+      console.log("Error fetching customers:", err);
     }
   };
 
@@ -42,7 +46,7 @@ export default function HomeScreen({ navigation }: any) {
           </View>
         )}
       />
-      <Button title="Make Payment" onPress={() => navigation.navigate("Payment")} />
+      <Button title="Make Payment" onPress={() => router.push("/explore")} />
     </View>
   );
 }
