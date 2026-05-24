@@ -2,6 +2,8 @@
 
 A cross-platform mobile application built with **Expo** and **React Native** for managing customer loan payments. Supports viewing customer loans, making payments, and checking payment history — all with a clean themed UI.
 
+backend repo: https://github.com/rinshamol/PaymentAppTest.git
+
 ---
 
 ## 📌 Features
