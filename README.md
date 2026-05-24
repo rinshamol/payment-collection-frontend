@@ -1,50 +1,117 @@
-# Welcome to your Expo app 👋
+# 💳 Payment Collection App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform mobile application built with **Expo** and **React Native** for managing customer loan payments. Supports viewing customer loans, making payments, and checking payment history — all with a clean themed UI.
 
-## Get started
+---
 
-1. Install dependencies
+## 📌 Features
 
-   ```bash
-   npm install
-   ```
+- 👥 **Customer Loan View** – Browse and manage customer loan records
+- 💰 **Payment Processing** – Collect and submit payments seamlessly
+- 🕓 **Payment History** – View past transactions per customer
+- 🌗 **Light / Dark Mode** – Themed UI that adapts to system preferences
+- 📱 **Cross-Platform** – Runs on Android, iOS, and Web via Expo
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+| Category    | Technology                        |
+|-------------|-----------------------------------|
+| Language    | TypeScript                        |
+| Framework   | React Native, Expo                |
+| Navigation  | Expo Router (file-based routing)  |
+| HTTP Client | Axios                             |
+| UI Library  | React Native Paper                |
+| Navigation  | React Navigation                  |
+| Platform    | Android, iOS, Web                 |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+payment-collection-frontend/
+│
+├── app/
+│   ├── (tabs)/
+│   │   ├── index.tsx         # Customer loan list
+│   │   ├── payment.tsx       # Payment screen
+│   │   └── history.tsx       # Payment history
+│   └── _layout.tsx
+│
+├── components/
+│   ├── ExternalLink.tsx
+│   └── HapticTab.tsx
+│
+├── config/
+│   └── api.ts                # API configuration
+│
+├── hooks/                    # Theming and custom hooks
+├── assets/
+├── app.json
+├── package.json
+└── tsconfig.json
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🚀 Getting Started
 
-To learn more about developing your project with Expo, look at the following resources:
+### Prerequisites
+- Node.js
+- Expo CLI
+- Android/iOS device or emulator
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/rinshamol/payment-collection-frontend.git
+cd payment-collection-frontend
+```
 
-## Join the community
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-Join our community of developers creating universal apps.
+### 3️⃣ Configure API URL
+Create a `.env` file in the root:
+```env
+API_URL=https://your-backend-url.com
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 4️⃣ Start the App
+```bash
+npx expo start
+```
+
+Press `a` for Android emulator, `i` for iOS simulator, or scan the QR code with Expo Go.
+
+---
+
+## ⚠️ Known Limitations
+
+- No unit or integration tests yet
+- Input validation for payment amount is minimal
+
+---
+
+## 🔮 Roadmap
+
+- [ ] Environment variable support for API URL
+- [ ] Enhanced input validation for payments
+- [ ] Unit tests with Jest
+- [ ] Offline support
+
+---
+
+## 👩‍💻 Author
+
+**Rinsha Mol K S** – Software Developer  
+GitHub: [@rinshamol](https://github.com/rinshamol)
+
+---
+
+## 📝 License
+
+This project is for educational purposes.
